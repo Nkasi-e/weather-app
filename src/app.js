@@ -1,8 +1,8 @@
 const path = require("path");
 const express = require("express");
 const hbs = require("hbs");
-const forecast = require("../utility/forecast");
-const geocode = require("../utility/goecode");
+const forecast = require("./utility/forecast");
+const geocode = require("./utility/goecode");
 
 console.log(__dirname);
 
@@ -18,7 +18,6 @@ app.set("views", viewPath);
 hbs.registerPartials(partialsPath);
 
 //Setup static directory to serve
-app.use(express.json());
 app.use(express.static(publicDir));
 
 //object name
