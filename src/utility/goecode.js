@@ -9,11 +9,11 @@ const geocode = (address, callback) => {
   request({ url, json: true }, (error, { body }) => {
     if (error) {
       callback(`Unable to connect to weather services!`, undefined);
-    } else if (body.message) {
+    } else if (body.features.length === 0) {
       callback(`Invalid URL. Check URL and try again`, undefined);
     } else {
       callback(undefined, {
-        latitude: body.features[0].center[1],
+        latitude: body.features[0].center[0],
         longitude: body.features[0].center[0],
         location: body.features[0].place_name,
       });
