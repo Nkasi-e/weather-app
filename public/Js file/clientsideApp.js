@@ -3,6 +3,7 @@ const form = document.querySelector("form");
 const search = document.querySelector("input");
 const messageOne = document.querySelector("#message-1");
 const messageTwo = document.querySelector("#message-2");
+const messageThree = document.getElementById("message-3");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault(); //value extracts whatever is been typed to the input
@@ -18,8 +19,10 @@ form.addEventListener("submit", (e) => {
       } else {
         messageOne.textContent = data.location;
         messageTwo.textContent = data.forecast;
+        messageThree.textContent = `I hope you enjoy your day if the weather is favourable, but if it's not, take cover.. LOL`;
       }
     });
   });
+  messageThree.textContent = "";
   search.value = "";
 });
