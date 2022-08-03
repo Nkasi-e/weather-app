@@ -12,7 +12,10 @@ const forecast = (latitute, longitude, callback) => {
     if (error) {
       callback("Unable to connect to weather", undefined);
     } else if (body.error) {
-      callback("URL not valid. Check URL", undefined);
+      callback(
+        `Oops! Couldn't get data for this particular address. Try a different address`,
+        undefined
+      );
     } else {
       callback(
         undefined,
