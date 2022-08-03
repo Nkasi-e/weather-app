@@ -10,7 +10,10 @@ const geocode = (address, callback) => {
     if (error) {
       callback(`Unable to connect to weather services!`, undefined);
     } else if (body.features.length === 0) {
-      callback(`Invalid URL. Check URL and try again`, undefined);
+      callback(
+        `Oops! Couldn't get data for this particular address. Try a different address`,
+        undefined
+      );
     } else {
       callback(undefined, {
         latitude: body.features[0].center[0],
